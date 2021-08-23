@@ -22,7 +22,7 @@ data:
   # This is our Azure Application Gateway range. The ONLY traffic that should be hitting
   # the ingress controller directly is AAG.
   #whitelist-source-range: 10.240.4.16/28
-  ssl-redirect: "true"
+  ssl-redirect: "false"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
