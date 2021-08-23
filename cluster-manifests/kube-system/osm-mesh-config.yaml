@@ -7,20 +7,15 @@ spec:
     serviceCertValidityDuration: 24h
   featureFlags:
     enableEgressPolicy: true
-    enableWASMStats: true
+    enableWASMStats: false
   observability:
-    enableDebugServer: true
+    enableDebugServer: false
     osmLogLevel: info
     tracing:
       enable: false
   sidecar:
-    configResyncInterval: 0s
     enablePrivilegedInitContainer: false
-    # envoyImage: mcr.microsoft.com/oss/envoyproxy/envoy:v1.18.3
-    # initContainerImage: mcr.microsoft.com/oss/openservicemesh/init:v0.9.1
     logLevel: error
-    maxDataPlaneConnections: 0
-    resources: {}
   traffic:
     enableEgress: true
     enablePermissiveTrafficPolicyMode: false
