@@ -39,7 +39,7 @@ spec:
           imagePullPolicy: IfNotPresent
           resources:
             limits:
-              cpu: 200m
+              cpu: 500m
               memory: 1024Mi
             requests:
               cpu: 100m
@@ -53,22 +53,8 @@ spec:
             - -K
             - /var/run/secrets/kubernetes.io/serviceaccount/token
             - -k
-            - "https://$(KUBERNETES_SERVICE_HOST)"
+            - https://$(KUBERNETES_SERVICE_HOST)
             - -pk
-          livenessProbe:
-            initialDelaySeconds: 60
-            timeoutSeconds: 5
-            periodSeconds: 15
-            httpGet:
-              path: /healthz
-              port: 8765
-          readinessProbe:
-            initialDelaySeconds: 30
-            timeoutSeconds: 5
-            periodSeconds: 15
-            httpGet:
-              path: /healthz
-              port: 8765
           volumeMounts:
             - mountPath: /host/run/containerd/containerd.sock
               name: containerd-socket
