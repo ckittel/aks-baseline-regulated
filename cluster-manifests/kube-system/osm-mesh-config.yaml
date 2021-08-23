@@ -1,0 +1,31 @@
+apiVersion: config.openservicemesh.io/v1alpha1
+kind: MeshConfig
+metadata:
+  name: osm-mesh-config
+spec:
+  certificate:
+    serviceCertValidityDuration: 24h
+  featureFlags:
+    enableEgressPolicy: true
+    enableWASMStats: true
+  observability:
+    enableDebugServer: true
+    osmLogLevel: info
+    tracing:
+      enable: false
+  sidecar:
+    configResyncInterval: 0s
+    enablePrivilegedInitContainer: false
+    # envoyImage: mcr.microsoft.com/oss/envoyproxy/envoy:v1.18.3
+    # initContainerImage: mcr.microsoft.com/oss/openservicemesh/init:v0.9.1
+    logLevel: error
+    maxDataPlaneConnections: 0
+    resources: {}
+  traffic:
+    enableEgress: true
+    enablePermissiveTrafficPolicyMode: false
+    outboundIPRangeExclusionList:
+      - 169.254.169.254/32
+      - 168.63.129.16/32
+      - 10.240.12.4/32
+    useHTTPSIngress: true
