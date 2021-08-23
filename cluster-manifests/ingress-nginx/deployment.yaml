@@ -21,8 +21,8 @@ data:
   #https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/
   # This is our Azure Application Gateway range. The ONLY traffic that should be hitting
   # the ingress controller directly is AAG.
-  whitelist-source-range: 10.240.4.16/28
-  ssl-redirect: "false"
+  #whitelist-source-range: 10.240.4.16/28
+  ssl-redirect: "true"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
