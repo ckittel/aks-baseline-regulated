@@ -302,7 +302,8 @@
                     "name": "DependencyAgentLinux",
                     "location": "[parameters('location')]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Compute/virtualMachineScaleSets', 'vmss-jumpboxes')]"
+                        "[resourceId('Microsoft.Compute/virtualMachineScaleSets', 'vmss-jumpboxes')]",
+                        "[resourceId('Microsoft.Compute/virtualMachineScaleSets/extensions', 'vmss-jumpboxes', 'OMSExtension')]"
                     ],
                     "properties": {
                         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
